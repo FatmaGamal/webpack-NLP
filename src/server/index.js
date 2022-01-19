@@ -34,7 +34,7 @@ app.post('/test', function (req, res, next) {
             res.send(result.data)
             return;
         } else {
-            res.send('Error :( )>>>');
+            res.send('Error');
             return;
         }
     });

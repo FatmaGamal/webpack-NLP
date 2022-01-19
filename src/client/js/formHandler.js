@@ -11,14 +11,12 @@ function handleSubmit(event) {
     axios.post('http://localhost:8081/test', {text: formText})
     .then((res, err) => {
         if (res) {
-            console.log('front finasl res', res);
+            document.querySelector('.container').style.display = 'block';
+            document.getElementById('results').innerHTML = res.data.score_tag;
         } else {
-        console.log('form err>>>', err)
+            console.log('There was an error gettign the analysis, please try again', err)
         }
-    })
-    .then(function(res) {
-        //document.getElementById('results').innerHTML = res.message
-    })
+    });
 }
 
 export { handleSubmit }
