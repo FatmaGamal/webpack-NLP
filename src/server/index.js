@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
     // res.send('Ja!')
 })
 
-app.post('/test', function (req, res, next) {
+app.post('/analyze', function (req, res, next) {
     axios({
         method: 'post',
         url: 'https://api.meaningcloud.com/sentiment-2.1',

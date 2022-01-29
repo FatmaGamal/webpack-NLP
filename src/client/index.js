@@ -1,14 +1,9 @@
-import { checkForName } from './js/nameChecker'
+import { checkForValue } from './js/emotionChecker'
 import { handleSubmit } from './js/formHandler'
 
 import './styles/main.scss'
 
-console.log(checkForName);
-
-alert("I EXIST")
-console.log("CHANGE!!");
-
 export {
-    checkForName,
+    checkForValue,
     handleSubmit
 }

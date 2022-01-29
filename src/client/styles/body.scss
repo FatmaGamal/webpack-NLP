@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(to top, rgba(19, 24, 36, 0) 40%, #171a26 100%), url('./../images/background.jpeg');
+    background-size: cover;
+    &.angry {
+        background: linear-gradient(to top, rgba(19, 24, 36, 0) 40%, #171a26 100%), red;
+    }
+    &.happy {
+        background: linear-gradient(to top, rgba(19, 24, 36, 0) 40%, #171a26 100%), yellow;
+    }
+    &.confused {
+        background: linear-gradient(to top, rgba(19, 24, 36, 0) 40%, #171a26 100%), grey;
+    }
+    &.excited {
+        background: linear-gradient(to top, rgba(19, 24, 36, 0) 40%, #171a26 100%), orange;
+    }
+    &.peaceful {
+        background: linear-gradient(to top, rgba(19, 24, 36, 0) 40%, #171a26 100%), green;
+    }
+    &.sad {
+        background: linear-gradient(to top, rgba(19, 24, 36, 0) 40%, #171a26 100%), lightblue;
+    }
+}
