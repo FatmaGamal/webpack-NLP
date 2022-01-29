@@ -9,22 +9,23 @@ function handleSubmit(event) {
     if (formText.trim()) {
 
         let colorEmotionDetected = Client.checkForValue(formText);
-        
-        if(colorEmotionDetected) {
+
+        if (colorEmotionDetected) {
             document.querySelector('body').className = formText;
         } else {
             document.querySelector('body').className = '';
         }
-        
-        axios.post('http://localhost:8081/analyze', {text: formText})
+
+        axios.post('http://localhost:8081/analyze', { text: formText })
             .then((res, err) => {
-            if (res) {
-                document.querySelector('.container').style.display = 'block';
-                document.getElementById('results').innerHTML = res.data.score_tag;
-            } else {
-                console.log('There was an error gettign the analysis, please try again', err)
-            }
-        });
+                if (err) {
+                    console.log('There was an error gettign the analysis, please try again', err)
+
+                } else if (res) {
+                    document.querySelector('.container').style.display = 'block';
+                    document.getElementById('results').innerHTML = res.data.score_tag;
+                }
+            });
     } else {
         document.querySelector('.container').style.display = 'none';
     }

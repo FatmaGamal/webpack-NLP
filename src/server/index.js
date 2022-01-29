@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 app.use(express.static('dist'))
 
-console.log(__dirname)
 
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
@@ -30,11 +29,12 @@ app.post('/analyze', function (req, res, next) {
             txt: req.body.text
         }
     }).then((result, error) => {
-        if (result) {
-            res.send(result.data)
-            return;
-        } else {
+        if (error) {
+            console.log('Backend error', error);
             res.send('Error');
+            return;
+        } else if (result) {
+            res.send(result.data)
             return;
         }
     });
