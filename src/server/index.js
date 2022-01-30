@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
     // res.send('Ja!')
 })
 
-app.post('/analyze', function (req, res, next) {
+app.post('/analyze', function (req, res) {
     axios({
         method: 'post',
         url: 'https://api.meaningcloud.com/sentiment-2.1',
@@ -29,14 +29,13 @@ app.post('/analyze', function (req, res, next) {
             txt: req.body.text
         }
     }).then((result, error) => {
-        if (error) {
-            console.log('Backend error', error);
-            res.send('Error');
-            return;
-        } else if (result) {
-            res.send(result.data)
-            return;
-        }
+        res.send(result.data)
+        return;
+    })
+    .catch((err) => {
+        console.log('Backend error');
+        res.status(500).send(err);
+        return;
     });
 })
 

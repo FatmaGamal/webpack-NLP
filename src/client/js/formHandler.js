@@ -17,14 +17,17 @@ function handleSubmit(event) {
         }
 
         axios.post('http://localhost:8081/analyze', { text: formText })
-            .then((res, err) => {
-                if (err) {
-                    console.log('There was an error gettign the analysis, please try again', err)
-
-                } else if (res) {
-                    document.querySelector('.container').style.display = 'block';
-                    document.getElementById('results').innerHTML = res.data.score_tag;
-                }
+            .then((res) => {
+                document.querySelector('.container').style.display = 'block';
+                document.getElementById('results').innerHTML = res.data.score_tag;
+            })
+            .catch((err) => {
+                document.querySelector('.container').style.display = 'block';
+                document.getElementById('results').innerHTML = `
+                <h2>There was an error getting the analysis</h2>
+                <h4>Please Try Again</h4>
+                    `;
+                console.log(err.message);
             });
     } else {
         document.querySelector('.container').style.display = 'none';
