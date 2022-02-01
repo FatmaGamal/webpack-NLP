@@ -1,9 +1,9 @@
-import { checkForValue } from './js/emotionChecker'
+import { checkForEmotion } from './js/emotionChecker'
 import { handleSubmit } from './js/formHandler'
 
 import './styles/main.scss'
 
 export {
-    checkForValue,
+    checkForEmotion,
     handleSubmit
 }

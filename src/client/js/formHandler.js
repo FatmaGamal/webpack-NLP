@@ -6,9 +6,8 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('name').value
     console.log("::: Form Submitted :::")
-    if (formText.trim()) {
-
-        let colorEmotionDetected = Client.checkForValue(formText);
+    if (isInputValid(formText)) {
+        let colorEmotionDetected = Client.checkForEmotion(formText);
 
         if (colorEmotionDetected) {
             document.querySelector('body').className = formText;
@@ -30,8 +29,22 @@ function handleSubmit(event) {
                 console.log(err.message);
             });
     } else {
-        document.querySelector('.container').style.display = 'none';
+        document.querySelector('.container').style.display = 'block';
+        document.getElementById('results').innerHTML = `
+                <h2>We only accept english letters</h2>
+                <h4>Please Try Again</h4>
+            `;
     }
 }
 
-export { handleSubmit }
+function isInputValid(text) {
+    if (!text.trim().length) {
+        return false;
+    }
+
+    // used https://bobbyhadz.com/blog/javascript-check-if-string-contains-only-letters-and-spaces for regex
+    let match = /^[A-Za-z\s]*$/.test(text);
+    return match;
+}
+
+export { handleSubmit, isInputValid }

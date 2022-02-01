@@ -1,8 +1,4 @@
-function checkForValue(inputText) {
-    if (!inputText.trim()) {
-        return false;
-    }
-
+function checkForEmotion(inputText) {
     let emotions = [
         "happy",
         "sad",
@@ -20,4 +16,4 @@ function checkForValue(inputText) {
     }
 }
 
-export { checkForValue }
+export { checkForEmotion }
