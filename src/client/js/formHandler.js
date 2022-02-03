@@ -15,7 +15,7 @@ function handleSubmit(event) {
             document.querySelector('body').className = '';
         }
 
-        axios.post('http://localhost:8081/analyze', { text: formText })
+        axios.post('/api/analyze', { text: formText })
             .then((res) => {
                 document.querySelector('.container').style.display = 'block';
                 document.getElementById('results').innerHTML = res.data.score_tag;

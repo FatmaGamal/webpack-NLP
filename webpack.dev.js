@@ -32,6 +32,24 @@ module.exports = {
             }
         ]
     },
+    devServer : {
+        contentBase: './dist',
+        compress: true,
+        port: 3000,
+        stats: 'errors-only',
+        open: true,
+        hot: true,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+        },
+        sockPort: 'location',
+        host: 'localhost', // Defaults to `localhost`
+        proxy: {
+            '/api': "http://localhost:8080"
+        }
+    },
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",

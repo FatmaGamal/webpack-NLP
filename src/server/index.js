@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
     // res.send('Ja!')
 })
 
-app.post('/analyze', function (req, res) {
+app.post('/api/analyze', function (req, res) {
     axios({
         method: 'post',
         url: 'https://api.meaningcloud.com/sentiment-2.1',
@@ -40,6 +40,6 @@ app.post('/analyze', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example  app listening on port 8081!')
+app.listen(8080, function () {
+    console.log('Example  app listening on port 8080!')
 })

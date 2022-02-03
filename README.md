@@ -20,22 +20,17 @@ These instructions will get you a copy of the project up and running on your loc
     `nvm install v16`
 4. Install all dependencies with
     `npm install`
-[
 5. Run the project with
-    `npm run build-dev`
-    it will run the app in the development mode.
-6. Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
-]
-OR
-[
-5. Run the project with
-    `npm run build-prod`
-    it will bundle app in the production mode.
-6. Run the project with
     `npm run start`
+    it will run the app in the development mode.
+6. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+OR
+
+5. Run the project with
+    `npm run run-prod`
     it will run the app in the production mode.
-7. Open [http://localhost:8081](http://localhost:8081) to view it in your browser.
-]
+6. Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
 
 
 ## Future updates
